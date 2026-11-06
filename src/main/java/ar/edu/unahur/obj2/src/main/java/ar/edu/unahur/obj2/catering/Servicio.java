@@ -2,7 +2,9 @@ package ar.edu.unahur.obj2.catering;
 
 import ar.edu.unahur.obj2.catering.excepciones.PrecioNegativoException;
 
-// Hoja del Composite: representa un servicio individual
+/**
+ * Hoja del Composite: un servicio suelto con nombre y precio.
+ */
 public class Servicio implements Propuesta {
 
     private final String nombre;

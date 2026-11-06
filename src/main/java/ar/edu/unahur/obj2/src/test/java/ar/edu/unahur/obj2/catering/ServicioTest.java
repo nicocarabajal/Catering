@@ -10,52 +10,52 @@ class ServicioTest {
     private static final double DELTA = 0.001;
 
     @Test
-    void crearServicioConPrecioNegativoLanzaExcepcion() {
+    void dadoUnServicioConPrecioNegativo_alCrearlo_lanzaPrecioNegativoException() {
         assertThrows(PrecioNegativoException.class, () -> new Servicio("DJ y sonido", -1));
     }
 
     @Test
-    void crearServicioConPrecioCeroNoLanzaExcepcion() {
+    void dadoUnServicioConPrecioCero_alCrearlo_noLanzaExcepcion() {
         assertDoesNotThrow(() -> new Servicio("Cortesía", 0));
     }
 
     @Test
-    void consultarPrecioDevuelveElValorConElQueSeCreo() {
+    void dadoUnServicio_alConsultarSuPrecio_devuelveElPrecioConElQueSeCreo() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertEquals(60_000, mesaDulce.precio(), DELTA);
     }
 
     @Test
-    void consultarDescripcionDevuelveSuNombre() {
+    void dadoUnServicio_alConsultarSuDescripcion_devuelveSuNombre() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertEquals("Mesa dulce", mesaDulce.descripcion());
     }
 
     @Test
-    void cantidadServiciosDevuelveUnoParaServicioSuelto() {
+    void dadoUnServicioSuelto_alContarServicios_devuelveUno() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertEquals(1, mesaDulce.cantidadServicios());
     }
 
     @Test
-    void servicioIncluyeSuPropioNombreDevuelveTrue() {
+    void dadoUnServicio_alConsultarSiIncluyeSuPropioNombre_esVerdadero() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertTrue(mesaDulce.incluye("Mesa dulce"));
     }
 
     @Test
-    void servicioIncluyeOtroNombreDevuelveFalse() {
+    void dadoUnServicio_alConsultarSiIncluyeOtroNombre_esFalso() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertFalse(mesaDulce.incluye("DJ y sonido"));
     }
 
     @Test
-    void actualizarPrecioModificaElValorCorrectamente() {
+    void dadoUnServicio_alActualizarSuPrecio_tomaElNuevoPrecio() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         mesaDulce.actualizarPrecio(70_000);
@@ -64,7 +64,7 @@ class ServicioTest {
     }
 
     @Test
-    void actualizarPrecioConValorNegativoLanzaExcepcion() {
+    void dadoUnServicio_alActualizarSuPrecioConUnValorNegativo_lanzaPrecioNegativoException() {
         Servicio mesaDulce = new Servicio("Mesa dulce", 60_000);
 
         assertThrows(PrecioNegativoException.class, () -> mesaDulce.actualizarPrecio(-5));
